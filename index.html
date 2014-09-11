@@ -56,6 +56,66 @@
       
       
         <div class="icon"></div>
+        <time datetime="2014-09-11T08:59:16.000Z"><a href="/2014/09/11/tutorial/">Sep 11 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/09/11/tutorial/">tutorial</a></h1>
+  
+
+      
+    </header>
+    <div class="entry">
+      
+        
+        <h1 id="Firefox_OS_tutorial">Firefox OS tutorial</h1>
+<h2 id="Mapbox_turn_by_turn_navigation_app">Mapbox turn by turn navigation app</h2>
+<p>This is my first tutorial about Firefox os apps where I’ll explain how I created an hosted webapp by using an open github project I found at <a href="https://github.com/rsudekum/navigation" target="_blank" rel="external">https://github.com/rsudekum/navigation</a>.<br>First I’ll try explain the code I found so let’s create three files:</p>
+<ul>
+<li>index.html</li>
+<li>site.js (under folder assets/js)</li>
+<li>site.css (under folder assets/css)</li>
+</ul>
+<h2 id="index-html">index.html</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">'utf-8'</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>Navigation<span class="tag">&lt;/<span class="title">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">'//api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css'</span> <span class="attribute">rel</span>=<span class="value">'stylesheet'</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">'stylesheet'</span> <span class="attribute">href</span>=<span class="value">'//www.mapbox.com/base/latest/base.css'</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">'stylesheet'</span> <span class="attribute">href</span>=<span class="value">'assets/css/site.css'</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></div><div class="line">    </div><div class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">'map'</span>&gt;</span></div><div class="line">       </div><div class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line"></div><div class="line"> </div><div class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">'assets/js/mapbox.js'</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">'assets/js/jquery.js'</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">'assets/js/site.js'</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="title">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p>The html file will first load two css from mapbox and one from localhost located at assets/css/, then it’s going to show our map whose id is ‘map’, then it’s going to load three js files from localhost: a mapbox, a jquery and a site js file.<br>The mapbox.js file is the one you can download at <a href="https://api.tiles.mapbox.com/mapbox.js/v2.1.0/mapbox.js" target="_blank" rel="external">https://api.tiles.mapbox.com/mapbox.js/v2.1.0/mapbox.js</a></p>
+<h2 id="site-css">site.css</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="id">#map</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;</div><div class="line">    <span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">bottom</span>:<span class="value"><span class="number">0</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100%</span></span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p>Our css file will simply instruct how to draw our map id.</p>
+<h2 id="site-js">site.js</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">    L.mapbox.accessToken = <span class="string">'pk.eyJ1Ijoic3Vva28iLCJhIjoicUl0WUpGbyJ9.PHo4BAra3WHDCljdCQ8F6Q'</span>;</div><div class="line">    <span class="keyword">var</span> map = L.mapbox.map(<span class="string">'map'</span>, <span class="string">'suoko.jbhn5d4b'</span>, {</div><div class="line">    })</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p>This is where our map gets drew. You only have to specify your map id</p>
+
+      
+    </div>
+    <footer>
+      
+      
+      
+        
+          <div class="alignright share-box">
+  
+</div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+      
+        <div class="icon"></div>
         <time datetime="2014-09-07T07:35:46.000Z"><a href="/2014/09/07/my-first-post/">Sep 7 2014</a></time>
       
       

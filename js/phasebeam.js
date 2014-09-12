@@ -7,7 +7,7 @@
 			circle: {
 				amount: 18,
 				layer: 3,
-				color: [157, 97, 207],
+				color: [97, 97, 97],
 				alpha: 0.3
 			},
 			line: {
